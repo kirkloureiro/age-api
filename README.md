@@ -10,6 +10,9 @@ Some technologies used in this application:
 - H2 Database Engine
 - Jetty
 - Maven
+- Log4j
+- FlywayDb
+- JSP
 
 # Building
 
@@ -27,7 +30,7 @@ You can run/deploy this application with the maven command:
 mvn jetty:run
 ```
 
-The application is deployed by default at : http://localhost:8080/basic-struts/
+The application is deployed by default at : http://localhost:8080/basic-struts/index.jsp
 
 ###### Database:
 

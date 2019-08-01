@@ -6,10 +6,18 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>age-api</name>
+
+	<developers>
+		<developer>
+			<name>Bruno Santos</name>
+			<email>brunostsilva@gmail.com</email>
+		</developer>
+	</developers>
+
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
 		<finalName>basic-struts</finalName>
-		
+
 		<plugins>
 
 			<plugin>
@@ -37,94 +45,18 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-<!-- 			<plugin> -->
-<!-- 				<artifactId>maven-war-plugin</artifactId> -->
-<!-- 				<version>3.0.0</version> -->
-<!-- 				<configuration> -->
-<!-- 					<warSourceDirectory>src/main/webapp</warSourceDirectory> -->
-<!-- 				</configuration> -->
-<!-- 			</plugin> -->
-			<!-- Generates JAVA source files from the WSDL -->
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.apache.axis2</groupId> -->
-<!-- 				<artifactId>axis2-wsdl2code-maven-plugin</artifactId> -->
-<!-- 				<version>1.7.7</version> -->
-<!-- 				<executions> -->
-<!-- 					<execution> -->
-<!-- 						<goals> -->
-<!-- 							<goal>wsdl2code</goal> -->
-<!-- 						</goals> -->
-<!-- 						<configuration> -->
-<!-- 							<packageName>ws</packageName> -->
-<!-- 							<wsdlFile>{{path of WSDL file to be used}}</wsdlFile> -->
-<!-- 							<databindingName>xmlbeans</databindingName> -->
-<!-- 							TODO: Update this file with new WSDL versions -->
-<!-- 						</configuration> -->
-<!-- 					</execution> -->
-<!-- 				</executions> -->
-<!-- 			</plugin> -->
-<!-- 			<plugin> -->
-<!-- 				<artifactId>maven-source-plugin</artifactId> -->
-<!-- 				<executions> -->
-<!-- 					<execution> -->
-<!-- 						<id>attach-sources</id> -->
-<!-- 						<goals> -->
-<!-- 							<goal>jar</goal> -->
-<!-- 						</goals> -->
-<!-- 					</execution> -->
-<!-- 				</executions> -->
-<!-- 			</plugin> -->
-<!-- 			<plugin> -->
-<!-- 				<artifactId>maven-assembly-plugin</artifactId> -->
-<!-- 				<configuration> -->
-<!-- 					<appendAssemblyId>false</appendAssemblyId> -->
-<!-- 					<descriptorRefs> -->
-<!-- 						<descriptorRef>src</descriptorRef> -->
-<!-- 					</descriptorRefs> -->
-<!-- 				</configuration> -->
-<!-- 				<executions> -->
-<!-- 					<execution> -->
-<!-- 						<id>make-assembly</id> -->
-<!-- 						this is used for inheritance merges -->
-<!-- 						<phase>package</phase> -->
-<!-- 						bind to the packaging phase -->
-<!-- 						<goals> -->
-<!-- 							<goal>single</goal> -->
-<!-- 						</goals> -->
-<!-- 					</execution> -->
-<!-- 				</executions> -->
-<!-- 			</plugin> -->
-<!-- 			<plugin> -->
-<!-- 				<artifactId>maven-dependency-plugin</artifactId> -->
-<!-- 				<executions> -->
-<!-- 					<execution> -->
-<!-- 						<id>copy</id> -->
-<!-- 						<phase>process-resources</phase> -->
-<!-- 						<goals> -->
-<!-- 							<goal>copy</goal> -->
-<!-- 						</goals> -->
-<!-- 						<configuration> -->
-<!-- 							<artifactItems> -->
-<!-- 								<artifactItem> -->
-<!-- 									<groupId>org.apache.openejb</groupId> -->
-<!-- 									<artifactId>openejb-javaagent</artifactId> -->
-<!-- 									<version>3.0-beta-2</version> -->
-<!-- 									<outputDirectory>${project.build.directory}</outputDirectory> -->
-<!-- 								</artifactItem> -->
-<!-- 							</artifactItems> -->
-<!-- 						</configuration> -->
-<!-- 					</execution> -->
-<!-- 				</executions> -->
-<!-- 			</plugin> -->
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<warSourceDirectory>src/main/webapp</warSourceDirectory>
+				</configuration>
+			</plugin>
+
+
 		</plugins>
-		
+
 		<resources>
-<!-- 			<resource> -->
-<!-- 				<directory>target/generated-sources/axis2/wsdl2code/resources</directory> -->
-<!-- 			</resource> -->
-<!-- 			<resource> -->
-<!-- 				<directory>target/generated-sources/xmlbeans/resources</directory> -->
-<!-- 			</resource> -->
 			<resource>
 				<directory>src/main/resources</directory>
 			</resource>
@@ -141,14 +73,35 @@
 		</dependency>
 
 
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.196</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.10.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.10.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+			<version>5.2.4</version>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.apache.axis2</groupId>
 			<artifactId>axis2-wsdl2code-maven-plugin</artifactId>
 			<version>1.7.7</version>
 		</dependency>
-
-
 
 
 	</dependencies>

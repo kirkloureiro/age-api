@@ -1,0 +1,8 @@
+CREATE SCHEMA IF NOT EXISTS exames;
+
+CREATE TABLE IF NOT EXISTS exames.tb_exame (
+    id BIGINT (30) PRIMARY KEY AUTO_INCREMENT,
+    nome_cliente VARCHAR(255) NOT NULL,
+    tipo_exame VARCHAR(255) NOT NULL,
+    observacao VARCHAR(255)
+);

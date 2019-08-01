@@ -11,9 +11,19 @@ public class Exame implements Serializable {
 
 	private Long id;
 	private String nomeExame;
-	private TipoExame tipoExame;
+	private String tipoExame;
 	private String observacao;
+	
+	public Exame() {
+	}
 
+	public Exame(Long id, String nomeExame, String tipoExame, String observacao) {
+		super();
+		this.id = id;
+		this.nomeExame = nomeExame;
+		this.tipoExame = tipoExame;
+		this.observacao = observacao;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -30,11 +40,11 @@ public class Exame implements Serializable {
 		this.nomeExame = nomeExame;
 	}
 
-	public TipoExame getTipoExame() {
+	public String getTipoExame() {
 		return tipoExame;
 	}
 
-	public void setTipoExame(TipoExame tipoExame) {
+	public void setTipoExame(String tipoExame) {
 		this.tipoExame = tipoExame;
 	}
 
@@ -46,7 +56,6 @@ public class Exame implements Serializable {
 		this.observacao = observacao;
 	}
 	
-
 	@Override
 	public String toString() {
         return new ToStringBuilder(this, ToStringStyle.JSON_STYLE)

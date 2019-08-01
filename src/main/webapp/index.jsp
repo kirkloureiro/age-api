@@ -13,7 +13,7 @@
 		<s:textfield label="Nome Cliente" name="exame.nomeExame" />
 	    <s:select  label="Tipo Exame"  
 		list="#{'MAMOGRAFIA':'MAMOGRAFIA', 'RESSONANCIA':'RESSONANCIA', 'ULTRASOM':'ULTRASOM'}" 
-		name="" />
+		name="exame.tipoExame" />
 		<s:textfield label="Observacao" name="exame.observacao" />
 		<s:submit cssClass="button-register" value="Create" />
 	</s:form>

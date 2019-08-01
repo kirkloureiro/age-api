@@ -1,5 +1,7 @@
 package action;
 
+import org.apache.log4j.Logger;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import model.Exame;
@@ -9,13 +11,15 @@ public class CreateAction extends ActionSupport {
 
 	private static final long serialVersionUID = 5402912957414641367L;
 	
+	private static final Logger logger = Logger.getLogger(CreateAction.class);
+	
 	ExameWS exameService = new ExameWS();
 	private Exame exame = new Exame();
 	private String message;
 
 	@Override
 	public String execute() throws Exception {
-		System.out.println("Passei" + exame);
+		logger.info("Passei: " + exame);
 		exameService.createExam(exame);
 		message = exameService.readAllExams().toString();
 		return super.execute();
