@@ -10,13 +10,13 @@ import com.opensymphony.xwork2.ActionSupport;
 import model.Exame;
 import ws.ExameWS;
 
-public class CreateAction extends ActionSupport {
+public class UpdateAction extends ActionSupport {
 
-	private static final long serialVersionUID = 5402912957414641367L;
+	private static final long serialVersionUID = 8205280022229265122L;
+
+	private static final Logger logger = Logger.getLogger(UpdateAction.class);
 	
-	private static final Logger logger = Logger.getLogger(CreateAction.class);
-	
-	private ExameWS exameService = new ExameWS();
+	ExameWS exameService = new ExameWS();
 	private Exame exame = new Exame();
 	private String message;
 	private List<Exame> exames = new ArrayList<>();
@@ -24,7 +24,7 @@ public class CreateAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		logger.info("exame: " + exame);
-		exameService.createExam(exame);
+		exameService.updateExam(exame);
 		this.exames = exameService.readAllExams();
 		message = this.exames.toString();
 		return super.execute();
@@ -45,7 +45,6 @@ public class CreateAction extends ActionSupport {
 	public void setExame(Exame exame) {
 		this.exame = exame;
 	}
-	
 
 	public List<Exame> getExames() {
 		return exames;

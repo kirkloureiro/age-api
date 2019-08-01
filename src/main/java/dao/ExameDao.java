@@ -57,10 +57,11 @@ public class ExameDao {
 			Connection conn = DriverManager.getConnection("jdbc:h2:mem:exames;", "sa", "");
 			Statement statement = conn.createStatement();
 
-			// insert the data
-			statement.executeUpdate("UPDATE EXAMES.TB_EXAME  SET NOME_CLIENTE='CHURROS', TIPO_EXAME='PASSEI', OBSERVACAO='TESTE' WHERE ID = 1");
+			statement.executeUpdate("UPDATE EXAMES.TB_EXAME  SET NOME_CLIENTE='TEST', TIPO_EXAME='MAMOGRAFIA', OBSERVACAO='TESTE Edicao' WHERE ID = " + exame.getId());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			
+			System.out.println("Ops");
 			e.printStackTrace();
 		}
 	}
@@ -70,8 +71,7 @@ public class ExameDao {
 			Connection conn = DriverManager.getConnection("jdbc:h2:mem:exames;", "sa", "");
 			Statement statement = conn.createStatement();
 
-			// insert the data
-			statement.executeUpdate("DELETE FROM EXAMES.TB_EXAME  WHERE ID = 1;");
+			statement.executeUpdate("DELETE FROM EXAMES.TB_EXAME  WHERE ID = " + examId);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

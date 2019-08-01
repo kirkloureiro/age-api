@@ -16,6 +16,15 @@
         <action name="createExame" class="action.CreateAction">
 			<result>/index.jsp</result>
 		</action>
+        <action name="updateExame" class="action.UpdateAction">
+			<result>/index.jsp</result>
+		</action>
+        <action name="deleteExame" class="action.DeleteAction">
+			<result>/index.jsp</result>
+		</action>
+        <action name="readExame" class="action.ReadAction">
+			<result>/index.jsp</result>
+		</action>
         
         
     </package>

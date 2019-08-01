@@ -20,6 +20,36 @@
 
 
    
-	<s:property value="message" />
-  </body>
+<%-- 	<s:property value="message" /> --%>
+	
+	<h3>Exames</h3>
+
+	<table>
+		<s:iterator var="exame" value="exames">
+			<tr>
+				<td><s:property /></td>
+				
+				<td>
+					<s:form action="deleteExame.action">
+						<s:hidden name="exameId" value="%{#exame.id}" />
+						<s:submit value="Remove" />
+					</s:form>
+				</td>
+				
+				<td>
+					<s:form action="updateExame.action">
+						<s:hidden name="exame.id" value="%{#exame.id}" />
+						<s:hidden label="Nome Cliente" name="exame.nomeExame" value="%{#exame.nomeExame}" />
+						<s:hidden label="Tipo Exame" name="exame.tipoExame" value="%{#exame.tipoExame}" />
+						<s:hidden label="Observacao" name="exame.observacao"  value="%{#exame.observacao}"  />
+
+						<s:submit value="Edit" />
+					</s:form>
+				</td>
+			</tr>
+		</s:iterator>
+	</table>
+
+
+</body>
 </html>

@@ -3,28 +3,23 @@ package action;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 import com.opensymphony.xwork2.ActionSupport;
 
 import model.Exame;
 import ws.ExameWS;
 
-public class CreateAction extends ActionSupport {
+public class DeleteAction extends ActionSupport {
 
-	private static final long serialVersionUID = 5402912957414641367L;
+	private static final long serialVersionUID = 8324535037569123941L;
 	
-	private static final Logger logger = Logger.getLogger(CreateAction.class);
-	
-	private ExameWS exameService = new ExameWS();
-	private Exame exame = new Exame();
+	ExameWS exameService = new ExameWS();
+	private Long exameId;
 	private String message;
 	private List<Exame> exames = new ArrayList<>();
 
 	@Override
 	public String execute() throws Exception {
-		logger.info("exame: " + exame);
-		exameService.createExam(exame);
+		exameService.deleteExam(exameId);
 		this.exames = exameService.readAllExams();
 		message = this.exames.toString();
 		return super.execute();
@@ -38,14 +33,13 @@ public class CreateAction extends ActionSupport {
 		this.message = message;
 	}
 
-	public Exame getExame() {
-		return exame;
+	public Long getExameId() {
+		return exameId;
 	}
 
-	public void setExame(Exame exame) {
-		this.exame = exame;
+	public void setExameId(Long exameId) {
+		this.exameId = exameId;
 	}
-	
 
 	public List<Exame> getExames() {
 		return exames;
