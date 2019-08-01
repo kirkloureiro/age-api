@@ -1,0 +1,160 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>age-api</groupId>
+	<artifactId>age-api</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>age-api</name>
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<finalName>basic-struts</finalName>
+		
+		<plugins>
+
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.4.7.v20170914</version>
+				<configuration>
+					<webApp>
+						<contextPath>/${project.build.finalName}</contextPath>
+					</webApp>
+					<stopKey>CTRL+C</stopKey>
+					<stopPort>8999</stopPort>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<scanTargets>
+						<scanTarget>src/main/webapp/WEB-INF/web.xml</scanTarget>
+					</scanTargets>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+<!-- 			<plugin> -->
+<!-- 				<artifactId>maven-war-plugin</artifactId> -->
+<!-- 				<version>3.0.0</version> -->
+<!-- 				<configuration> -->
+<!-- 					<warSourceDirectory>src/main/webapp</warSourceDirectory> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
+			<!-- Generates JAVA source files from the WSDL -->
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.axis2</groupId> -->
+<!-- 				<artifactId>axis2-wsdl2code-maven-plugin</artifactId> -->
+<!-- 				<version>1.7.7</version> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<goals> -->
+<!-- 							<goal>wsdl2code</goal> -->
+<!-- 						</goals> -->
+<!-- 						<configuration> -->
+<!-- 							<packageName>ws</packageName> -->
+<!-- 							<wsdlFile>{{path of WSDL file to be used}}</wsdlFile> -->
+<!-- 							<databindingName>xmlbeans</databindingName> -->
+<!-- 							TODO: Update this file with new WSDL versions -->
+<!-- 						</configuration> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
+<!-- 			<plugin> -->
+<!-- 				<artifactId>maven-source-plugin</artifactId> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<id>attach-sources</id> -->
+<!-- 						<goals> -->
+<!-- 							<goal>jar</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
+<!-- 			<plugin> -->
+<!-- 				<artifactId>maven-assembly-plugin</artifactId> -->
+<!-- 				<configuration> -->
+<!-- 					<appendAssemblyId>false</appendAssemblyId> -->
+<!-- 					<descriptorRefs> -->
+<!-- 						<descriptorRef>src</descriptorRef> -->
+<!-- 					</descriptorRefs> -->
+<!-- 				</configuration> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<id>make-assembly</id> -->
+<!-- 						this is used for inheritance merges -->
+<!-- 						<phase>package</phase> -->
+<!-- 						bind to the packaging phase -->
+<!-- 						<goals> -->
+<!-- 							<goal>single</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
+<!-- 			<plugin> -->
+<!-- 				<artifactId>maven-dependency-plugin</artifactId> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<id>copy</id> -->
+<!-- 						<phase>process-resources</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>copy</goal> -->
+<!-- 						</goals> -->
+<!-- 						<configuration> -->
+<!-- 							<artifactItems> -->
+<!-- 								<artifactItem> -->
+<!-- 									<groupId>org.apache.openejb</groupId> -->
+<!-- 									<artifactId>openejb-javaagent</artifactId> -->
+<!-- 									<version>3.0-beta-2</version> -->
+<!-- 									<outputDirectory>${project.build.directory}</outputDirectory> -->
+<!-- 								</artifactItem> -->
+<!-- 							</artifactItems> -->
+<!-- 						</configuration> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
+		</plugins>
+		
+		<resources>
+<!-- 			<resource> -->
+<!-- 				<directory>target/generated-sources/axis2/wsdl2code/resources</directory> -->
+<!-- 			</resource> -->
+<!-- 			<resource> -->
+<!-- 				<directory>target/generated-sources/xmlbeans/resources</directory> -->
+<!-- 			</resource> -->
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+
+	</build>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-core</artifactId>
+			<version>2.5.14.1</version>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>axis2-wsdl2code-maven-plugin</artifactId>
+			<version>1.7.7</version>
+		</dependency>
+
+
+
+
+	</dependencies>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+</project>
